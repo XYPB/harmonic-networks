@@ -16,11 +16,11 @@ def dct_filters(k=3, groups=1, expand_dim=1, level=None, DC=True, l1_norm=True):
     if level is None:
         nf = k**2 - int(not DC) 
     else:
-       	if level <= k:
+        if level <= k:
             nf = level*(level+1)//2 - int(not DC) 
-       	else:
-       	    r = 2*k-1 - level
-       	    nf = k**2 - r*(r+1)//2 - int(not DC)
+        else:
+            r = 2*k-1 - level
+            nf = k**2 - r*(r+1)//2 - int(not DC)
     filter_bank = np.zeros((nf, k, k), dtype=np.float32)
     m = 0
     for i in range(k):
